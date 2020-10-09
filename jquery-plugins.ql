@@ -1,8 +1,8 @@
 import javascript
 
-from DataFlow::PropRead propRead, DataFlow::FunctionNode func
+from DataFlow::PropRead propRead, DataFlow::SourceNode node
 
-where propRead = jquery().getAPropertyReference("fn") and
-      func = propRead.getAPropertySource()
+where propRead = jquery().getAPropertyRead("fn") and
+      node = propRead.getAPropertySource()
 
-select func
+select node
