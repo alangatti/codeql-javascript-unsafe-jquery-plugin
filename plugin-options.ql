@@ -6,4 +6,4 @@ where propRead = jquery().getAPropertyRead("fn") and
       node = propRead.getAPropertySource() and
       lastParam = node.getLastParameter()
 
-select lastParam
+select node
