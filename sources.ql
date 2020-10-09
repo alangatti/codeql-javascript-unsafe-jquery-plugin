@@ -4,6 +4,6 @@ from DataFlow::PropRead propRead, DataFlow::FunctionNode node, DataFlow::Paramet
 
 where propRead = jquery().getAPropertyRead("fn") and
       node = propRead.getAPropertySource() and
-      lastParam = node.getParameter(0)
+      lastParam = node.getLastParameter()
 
 select lastParam
