@@ -1,10 +1,9 @@
 import javascript
 
-predicate isSource(DataFlow::Node source) {
-    exists(source.(DataFlow::FunctionNode).getLastParameter())
-}
+from DataFlow::PropRead propRead, DataFlow::FunctionNode node, DataFlow::ParameterNode lastParam
 
-from DataFlow::Node node
-where node = jquery().getAPropertyRead("fn").getAPropertySource() and
-      isSource(node)
-select node
+where propRead = jquery().getAPropertyRead("fn") and
+      node = propRead.getAPropertySource() and
+      lastParam = node.getParameter(0)
+
+select lastParam
